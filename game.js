@@ -169,10 +169,19 @@ function endGame() {
         .innerHTML = html;
 }
 
-document.getElementById("guessInput").addEventListener("keydown", function(event) {
+window.onload = function() {
 
-    if (event.key === "Enter") {
-        submitGuess();
-    }
+    document.getElementById("guessInput")
+        .addEventListener("keydown", function(event) {
 
-});
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                submitGuess();
+            }
+
+        });
+
+};
+
