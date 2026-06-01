@@ -169,19 +169,23 @@ function endGame() {
         .innerHTML = html;
 }
 
-window.onload = function() {
 
-    document.getElementById("guessInput")
-        .addEventListener("keydown", function(event) {
+document.addEventListener("DOMContentLoaded", () => {
 
-            if (event.key === "Enter") {
+    const input = document.getElementById("guessInput");
 
-                event.preventDefault();
+    console.log("Input found:", input);
 
-                submitGuess();
-            }
+    input.addEventListener("keydown", (event) => {
 
-        });
+        console.log("Key pressed:", event.key);
 
-};
+        if (event.key === "Enter") {
+            event.preventDefault();
+            submitGuess();
+        }
+
+    });
+
+});
 
