@@ -22,9 +22,7 @@ Promise.all([
         .filter(x => x.length > 0)
     );
 
-console.log("Target word:", targetWord);
-console.log("Definition:", bioDict[targetWord]);
-    
+
     startGame();
 });
 
@@ -166,6 +164,9 @@ function endGame() {
     html += "<h3>Biology Term</h3>";
     html += targetWord;
 
+    console.log("Target word:", targetWord);
+    console.log("Definition:", bioDict[targetWord]);
+    
     html += "<h3>Definition</h3>";
     html += bioDict[targetWord];
 
