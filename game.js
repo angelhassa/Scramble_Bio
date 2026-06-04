@@ -4,7 +4,7 @@ let englishWords = new Set();
 let targetWord = "";
 let targetCount = {};
 let guesses = [];
-
+let interval = null;
 let timeLeft = 60;
 
 
@@ -110,8 +110,8 @@ function submitGuess() {
 }
 
 function startTimer() {
-
-    let interval = setInterval(() => {
+     clearInterval(interval);
+     interval = setInterval(() => {
 
         timeLeft--;
 
@@ -127,6 +127,23 @@ function startTimer() {
 
     }, 1000);
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const input = document.getElementById("guessInput");
+
+    console.log("Input found:", input);
+
+    input.addEventListener("keydown", (event) => {
+
+        console.log("Key pressed:", event.key);
+
+        if (event.key === "Enter") {
+            event.preventDefault();
+            submitGuess();
+        }
+
 
 function endGame() {
 
@@ -163,29 +180,29 @@ function endGame() {
 
     console.log("Target word:", targetWord);
     console.log("Definition:", bioDict[targetWord]);
-    
+    document.getElementById("guessInput").disabled = true;
     html += "<h3>Definition</h3>";
     html += bioDict[targetWord];
 
     document.getElementById("results")
         .innerHTML = html;
+
+    html += "<br><br>";
+    html += '<button onclick ="nextRound()"> Another One</button>';
+    
+}
+        function nextRound() {
+    timeLeft = 60;
+    document.getElementById("timer").innerText = 60;
+    guesses = [];
+    document.getElementById("guesses").innerHTML = "";
+    document.getElementById("results").innerHTML = "";
+    document.getElementById("guessInput").disabled = false;
+    document.getElementById("guessInput").value = "";
+    startGame();
 }
 
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    const input = document.getElementById("guessInput");
-
-    console.log("Input found:", input);
-
-    input.addEventListener("keydown", (event) => {
-
-        console.log("Key pressed:", event.key);
-
-        if (event.key === "Enter") {
-            event.preventDefault();
-            submitGuess();
-        }
 
     });
 
