@@ -25,7 +25,10 @@ Promise.all([
 });
 
 function startGame() {
-
+   
+    timeLeft = 60;
+    document.getElementById("timer").innerText = 60;
+   
     document.getElementById("startScreen")
         .style.display = "none";
 
@@ -143,6 +146,8 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
             submitGuess();
         }
+    });
+});
 
 
 function endGame() {
@@ -181,14 +186,16 @@ function endGame() {
     console.log("Target word:", targetWord);
     console.log("Definition:", bioDict[targetWord]);
     document.getElementById("guessInput").disabled = true;
+    
     html += "<h3>Definition</h3>";
     html += bioDict[targetWord];
 
-    document.getElementById("results")
-        .innerHTML = html;
-
     html += "<br><br>";
     html += '<button onclick ="nextRound()"> Another One</button>';
+
+    document.getElementById("results")
+      .innerHTML = html;
+
     
 }
         function nextRound() {
@@ -202,9 +209,4 @@ function endGame() {
     startGame();
 }
 
-
-
-    });
-
-});
 
