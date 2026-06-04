@@ -5,22 +5,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id = "startscreen">
+    <h1>Scramble for Biologists</h1>
+    <h2>Instructions</h2>
+    <p>
+        A biology term has been scrambled.
+    </p>
+    <p> Your mission should you choose to accept it, is to figure out what that term is in 60 seconds.</p>
+    <p> Your side quest is to make as many English words as possible using the letters. </p>
+    <P> To help you along in your mission the first letter of the biology term has been capiatalised</P>
+    <p> Words are checked only after the timer ends. </p>
+    <p>At the end of the round, the biology term and its definition will be revealed.</p>
 
-<h1>Scramble for Biologist</h1>
+    <button onclick="startGame()">
+        Start Game
+    </button>
 
-<div id="timer">60</div>
 
-<div id="letters"></div>
+<div id="gameScreen" style="display:none;">
+  <div id="timer">60</div>
 
-<input type="text" id="guessInput">
-<button onclick="submitGuess()">Submit</button>
+  <div id="letters"></div>
 
-<h3>Words Entered</h3>
-<ul id="guesses"></ul>
+  <input type="text" id="guessInput">
+  <button onclick="submitGuess()">Submit</button>
 
-<div id="results"></div>
+  <h3>Words Entered</h3>
+  <ul id="guesses"></ul>
 
-<script src="game.js"></script>
+  <div id="results"></div>
+</div>
+ <script src="game.js"></script>
 
 </body>
 </html>
